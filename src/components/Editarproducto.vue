@@ -8,12 +8,27 @@
     <v-row>
         <v-col>         
             <form v-on:submit.prevent="guardarProducto()">
+
+               <v-text-field
+                v-model="producto.idproveedor"        
+                label="Proveedor"        
+                outlined
+                required       
+            ></v-text-field>
+
+            <v-text-field
+                v-model="producto.idcategoria"        
+                label="Categoria"        
+                outlined
+                required       
+            ></v-text-field>
             <v-text-field
                 v-model="producto.nombre"        
                 label="Nombre"        
                 outlined
                 required       
             ></v-text-field>
+
             <v-text-field
                 v-model="producto.precio"        
                 label="Precio"
@@ -22,6 +37,7 @@
                 outlined
                 required        
             ></v-text-field>
+
             <v-text-field
                 v-model="producto.stock"        
                 label="Stock"
@@ -29,6 +45,7 @@
                 outlined
                 required        
             ></v-text-field>
+
             <v-card-actions>
             <v-btn color="warning" class="mr-4" type="submit">Guardar</v-btn>      
             </v-card-actions>
@@ -46,7 +63,7 @@ export default {
     mounted(){
       this.id = this.$route.params.id;
       console.log(this.$route);
-      axios.get('http://localhost/apirest/inventario?id='+this.id)
+      axios.get('http://localhost/apirest/productos?id='+this.id)
       .then(r =>{
         this.producto = r.data;
       })
@@ -58,6 +75,8 @@ export default {
       return{
         id:null,
         producto:{
+          idproveedor:'',
+          idcategoria:'',
           nombre:'',
           precio:'',
           stock:''
@@ -67,7 +86,7 @@ export default {
     methods:{
       guardarProducto(){
          var router =  this.$router;
-        axios.put('http://localhost/apirest/inventario?id='+this.id+'&nombre='+this.producto.nombre+'&precio='+this.producto.precio+'&stock='+this.producto.stock)
+        axios.put('http://localhost/apirest/productos?id='+this.id+'&nombre='+this.producto+'&idproveedor='+this.producto+'&idcategoria='+this.producto.nombre+'&precio='+this.producto.precio+'&stock='+this.producto.stock)
         .then(function(){
            router.push('/productos'); 
             toastr.success('Producto modificado')

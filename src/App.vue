@@ -6,12 +6,12 @@
         temporary
         app clipped>
         <v-list>
-          <v-list-item :to="{path: '/'}">
+          <v-list-item :to="{path: '/proveedores'}">
             <v-list-item-action>
               <v-icon>mdi-{{ icons[0] }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Inicio</v-list-item-title>
+              <v-list-item-title>Proveedor</v-list-item-title>
             </v-list-item-content>
           </v-list-item>   
 
@@ -29,7 +29,7 @@
               <v-icon>mdi-{{ icons[2] }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Usuarios</v-list-item-title>
+              <v-list-item-title>Categorias</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
@@ -38,7 +38,7 @@
               <v-icon>mdi-{{ icons[1] }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Proveedores</v-list-item-title>
+              <v-list-item-title>Orden</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 

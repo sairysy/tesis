@@ -8,12 +8,26 @@
     <v-row>
     <v-col>
         <form v-on:submit.prevent="guardarProducto()">
+        
+        <v-text-field v-model="producto.idproveedor"
+                label="Proveedor"
+                
+                outlined
+                required   
+        ></v-text-field>
+
+        <v-text-field v-model="producto.idcategoria"
+                label="Categoria"
+                outlined
+                required   
+        ></v-text-field>
+
         <v-text-field v-model="producto.nombre"
                 label="Nombre"
                 outlined
                 required   
-        >
-        </v-text-field>
+        ></v-text-field>
+
          <v-text-field
                 v-model="producto.precio"        
                 label="Precio"
@@ -22,6 +36,7 @@
                 outlined
                 required        
             ></v-text-field>
+
             <v-text-field
                 v-model="producto.stock"        
                 label="Stock"
@@ -39,6 +54,7 @@
     </v-container>
 </template>
 <script>
+
 import axios from 'axios';
 import toastr from 'toastr';
 export default {
@@ -46,6 +62,8 @@ export default {
     data(){
         return{
             producto:{
+                idproveedor:'',
+                idcategoria:'',
                 nombre:'',
                 precio:'',
                 stock:''
@@ -56,10 +74,12 @@ export default {
         guardarProducto(){
             var router = this.$router;
            const formData = new FormData();
+           formData.append('idproveedor',this.producto.idproveedor);
+           formData.append('idcategoria',this.producto.idcategoria);
            formData.append('nombre',this.producto.nombre);
            formData.append('precio',this.producto.precio);
            formData.append('stock',this.producto.stock);
-           axios.post('http://localhost/apirest/inventario',formData)
+           axios.post('http://localhost/apirest/productos',formData)
            .then(()=>{
                router.push('/productos');
                 toastr.success('Producto insertado correctamente');
