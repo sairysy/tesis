@@ -22,6 +22,10 @@ import listarPedido from './components/ListarPedido';
 import crearPedido from './components/CrearPedido';
 import editarPedido from './components/EditarPedido';
 
+import listarUsuario from './components/ListarUsuario';
+import crearUsuario from './components/CrearUsuario';
+import editarUsuario from './components/EditarUsuario';
+
 import './registerServiceWorker'
 // creacion de componentes
 
@@ -40,6 +44,11 @@ Vue.component('editarCategoria', editarCategoria);
 Vue.component('listarPedido', listarPedido );
 Vue.component('crearPedido', crearPedido );
 Vue.component('editarPedido', editarPedido);
+
+Vue.component('listarUsuario', listarUsuario );
+Vue.component('crearUsuario', crearUsuario );
+Vue.component('editarUsuario', editarUsuario);
+
 // uso de vue-router
 Vue.use(VueRouter);
 // deninir las rutas
@@ -62,7 +71,11 @@ const routes = [
   
   {path:'/pedidos',component:listarPedido},
   {path:'/crear', component:crearPedido, name:'crearPedido'},
-  {path:'/editar/:id', component:editarPedido, name:'editarPedido'}
+  {path:'/editar/:id', component:editarPedido, name:'editarPedido'},
+
+  {path:'/usuarios',component:listarUsuario},
+  {path:'/crear', component:crearUsuario, name:'crearUsuario'},
+  {path:'/editar/:id', component:editarUsuario, name:'editarUsuario'},
 ]
 // creacion del objeto router
 
