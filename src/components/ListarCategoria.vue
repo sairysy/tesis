@@ -3,14 +3,14 @@
     <v-row class="text-center">      
       <v-col class="mb-4">
         <h2 class="display-2 font-weight-bold mb-3">
-         Proveedores
+         Categorias
         </h2>       
       </v-col>        
     </v-row>
     <v-row>
     <v-col class="mb-1">
         <!--crear componente boton-->
-       <v-btn :to="{name:'crearProveedor'}" class="mx-2" fab dark color="indigo">
+       <v-btn :to="{name:'crearCategoria'}" class="mx-2" fab dark color="indigo">
          <v-icon dark>mdi-plus</v-icon>
        </v-btn>
     </v-col>
@@ -25,26 +25,22 @@
             <tr>
             <th class="text-center">Codigo</th>
             <th class="text-center">Nombre</th>
-            <th class="text-center">Direccion</th>
-            <th class="text-center">Telefono</th>
-            <th class="text-center">Ruc</th>
-            <th class="text-center">Correo</th>
+            <th class="text-center">Descripcion</th>
+           
             
             </tr>
         </thead>
         <tbody>
             <!--traer los datos de la base-->
-            <tr v-for="proveedor in proveedores" :key="proveedor.id">
-                <td>{{proveedor.id}}</td>
-                <td>{{proveedor.nombre}}</td>
-                <td>{{proveedor.direccion}}</td>
-                <td>{{proveedor.telefono}}</td>
-                <td>{{proveedor.ruc}}</td>
-                <td>{{proveedor.email}}</td>
+            <tr v-for="categoria in categorias" :key="categoria.id">
+                <td>{{categoria.id}}</td>
+                <td>{{categoria.nombre}}</td>
+                <td>{{categoria.descripcion}}</td>
+              
                 <td>  
                     <!--botones dentro de la tabla-->
-                    <v-btn :to="{name:'editarProveedor', params:{id:proveedor.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
-                    <v-btn @click.stop="dialog=true" @click="id=proveedor.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn>
+                    <v-btn :to="{name:'editarCategoria', params:{id:categoria.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
+                    <v-btn @click.stop="dialog=true" @click="id=categoria.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn>
                 </td>
             </tr>
          </tbody>   
@@ -74,35 +70,35 @@
 <script>
 import axios from 'axios';
 export default {
-    name:'listarProveedor',
+    name:'listarCategoria',
     // lo que quiero que se cargue apenas se carga el navegador
     mounted(){
-        this.obtenerProveedor();
+        this.obtenerCategoria();
     },
     data(){
         return{            
             dialog:false,
-            proveedores:null,
+            categorias:null,
             id:null,
             snackbar:false,
             textsnack:'¡Registro Eliminado!'
         }
     },
     methods:{
-        obtenerProveedor(){
-            axios.get('http://localhost/apirest/proveedores')
+        obtenerCategoria(){
+            axios.get('http://localhost/apirest/categorias')
             .then(r => {
-                this.proveedores = r.data;
-                console.log(this.proveedores);
+                this.categorias = r.data;
+                console.log(this.categorias);
             })
             .catch(function(error){
                 console.log(error);
             })
         },
         confirmarBorrado(id){            
-            axios.delete('http://localhost/apirest/proveedores?id='+id)
+            axios.delete('http://localhost/apirest/categorias?id='+id)
             .then(()=>{
-                    this.obtenerProveedor();
+                    this.obtenerCategoria();
                     this.dialog = false;
                     this.snackbar = true
             })

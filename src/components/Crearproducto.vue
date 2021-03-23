@@ -7,20 +7,32 @@
     </v-row>
     <v-row>
     <v-col>
-        <form v-on:submit.prevent="guardarProducto()">
-        
-        <v-text-field v-model="producto.idproveedor"
-                label="Proveedor"
-                
-                outlined
-                required   
-        ></v-text-field>
+        <form v-on:submit.prevent="guardarProducto()">  
+        <v-select 
+        v-model="proveedor"
+        class="form-control">  
+        <option disabled value="" selected="selected">seleccionar one</option>
+        <option v-for="proveedor in proveedores" :key="proveedor.id" v-bind:value="proveedor.id"> 
+            {{proveedor.nombre}}   
+        </option>
+          multiple
+          outlined
+          dense
+        ></v-select>
+        <v-combobox 
+          v-model="producto.idcategoria"
+          :items="items"
+          label="Categoria"
+          multiple
+          outlined
+          dense
+        ></v-combobox>
 
-        <v-text-field v-model="producto.idcategoria"
+        <!--v-text-field v-model="producto.idcategoria"
                 label="Categoria"
                 outlined
                 required   
-        ></v-text-field>
+        ></v-text-field-->
 
         <v-text-field v-model="producto.nombre"
                 label="Nombre"
@@ -50,18 +62,33 @@
         </form>
     </v-col>
     </v-row>
-
+  
+            
     </v-container>
 </template>
-<script>
+<script> 
 
+//import Vue from "vue";
+//import {ComboBoxPlugin} from '@syncfusion/ej2-vue-dropdowns';
+//Vue.use(ComboBoxPlugin);
+
+//import {DataManager, WebApiAdaptor} from "@syncfusion/ej2-data";
 import axios from 'axios';
 import toastr from 'toastr';
+
+
 export default {
+  
+    
     name:'crearProducto',
+    
+
     data(){
         return{
+              proveedores: {},
+              proveedor:'',
             producto:{
+                
                 idproveedor:'',
                 idcategoria:'',
                 nombre:'',
@@ -89,7 +116,10 @@ export default {
             });
         }
     }
+
+
 }
+
 </script>
 <style>
 

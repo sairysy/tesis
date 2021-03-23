@@ -27,6 +27,18 @@
                 required   
         ></v-text-field>
 
+        <v-text-field v-model="proveedor.ruc"
+                label="Ruc"
+                outlined
+                required   
+        ></v-text-field>
+
+        <v-text-field v-model="proveedor.email"
+                label="Email"
+                outlined
+                required   
+        ></v-text-field>
+
          
             <v-card-actions>
                 <v-btn color="warning" class="mr-4" type="submit">Guardar</v-btn>      
@@ -48,7 +60,9 @@ export default {
                 
                 nombre:'',
                 direccion:'',
-                telefono:''
+                telefono:'',
+                ruc:'',
+                email:''
             }
         };
     },
@@ -60,6 +74,8 @@ export default {
            formData.append('nombre',this.proveedor.nombre);
            formData.append('direccion',this.proveedor.direccion);
            formData.append('telefono',this.proveedor.telefono);
+           formData.append('ruc',this.proveedor.ruc);
+           formData.append('email',this.proveedor.email);
            axios.post('http://localhost/apirest/proveedores',formData)
            .then(()=>{
                router.push('/proveedores');

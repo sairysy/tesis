@@ -14,6 +14,14 @@ import listarProveedor from './components/ListarProveedor';
 import crearProveedor from './components/CrearProveedor';
 import editarProveedor from './components/EditarProveedor';
 
+import listarCategoria from './components/ListarCategoria';
+import crearCategoria from './components/CrearCategoria';
+import editarCategoria from './components/EditarCategoria';
+
+import listarPedido from './components/ListarPedido';
+import crearPedido from './components/CrearPedido';
+import editarPedido from './components/EditarPedido';
+
 import './registerServiceWorker'
 // creacion de componentes
 
@@ -25,6 +33,13 @@ Vue.component('listarProveedor', listarProveedor );
 Vue.component('crearProveedor', crearProveedor );
 Vue.component('editarProveedor', editarProveedor);
 
+Vue.component('listarCategoria', listarCategoria );
+Vue.component('crearCategoria', crearCategoria );
+Vue.component('editarCategoria', editarCategoria);
+
+Vue.component('listarPedido', listarPedido );
+Vue.component('crearPedido', crearPedido );
+Vue.component('editarPedido', editarPedido);
 // uso de vue-router
 Vue.use(VueRouter);
 // deninir las rutas
@@ -36,10 +51,18 @@ const routes = [
 
   //{path:'/', component:inicio},
  // {path:'/inicio', component:inicio},
+
   {path:'/proveedores',component:listarProveedor},
   {path:'/crear', component:crearProveedor, name:'crearProveedor'},
-  {path:'/editar/:id', component:editarProveedor, name:'editarProveedor'}
+  {path:'/editar/:id', component:editarProveedor, name:'editarProveedor'},
 
+  {path:'/categorias',component:listarCategoria},
+  {path:'/crear', component:crearCategoria, name:'crearCategoria'},
+  {path:'/editar/:id', component:editarCategoria, name:'editarCategoria'},
+  
+  {path:'/pedidos',component:listarPedido},
+  {path:'/crear', component:crearPedido, name:'crearPedido'},
+  {path:'/editar/:id', component:editarPedido, name:'editarPedido'}
 ]
 // creacion del objeto router
 
