@@ -11,6 +11,20 @@
         <v-select 
         v-model="proveedor"
         class="form-control">  
+
+
+        <a href="
+ 
+
+
+
+
+
+
+
+        A
+        
+        "></a>
         <option disabled value="" selected="selected">seleccionar one</option>
         <option v-for="proveedor in proveedores" :key="proveedor.id" v-bind:value="proveedor.id"> 
             {{proveedor.nombre}}   
