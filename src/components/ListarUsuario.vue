@@ -31,12 +31,13 @@
             <th class="text-center">Telefono</th>
             <th class="text-center">Correo</th>
             <th class="text-center">Acciones</th>
-            
+            <!--Prueba1-->
             </tr>
         </thead>
         <tbody>
             <!--traer los datos de la base-->
             <tr v-for="usuario in usuarios" :key="usuario.id">
+
                 <td>{{usuario.id}}</td>
                 <td>{{usuario.dni}}</td>
                 <td>{{usuario.nombres}}</td>
