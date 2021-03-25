@@ -44,7 +44,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item :to="{path: '/producto'}">
+          <v-list-item :to="{path: '/clientes'}">
             <v-list-item-action>
               <v-img src="./assets/cliente.png" width="25" alt=""  /> 
             </v-list-item-action>
@@ -63,7 +63,7 @@
           </v-list-item>
 
          
-          <v-list-item :to="{path: '/producto'}">
+          <v-list-item :to="{path: '/ventas'}">
             <v-list-item-action>
               <v-img src="./assets/ventas.png" width="25" alt=""  /> 
              
@@ -93,7 +93,7 @@
       <v-app-bar-nav-icon @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
         <v-toolbar-title>                
         <v-list-item :to="{path: '/'}">                
-        <v-img src="./assets/logos.png" width="250" alt=""        
+             
         />
         </v-list-item>  
         </v-toolbar-title>

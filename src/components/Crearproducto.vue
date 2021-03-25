@@ -9,26 +9,8 @@
     <v-col>
         <form v-on:submit.prevent="guardarProducto()">  
         <v-select 
-        v-model="proveedor"
+        v-model="poducto"
         class="form-control">  
-
-
-        <a href="
- 
-
-
-
-
-
-
-
-        A
-        
-        "></a>
-        <option disabled value="" selected="selected">seleccionar one</option>
-        <option v-for="proveedor in proveedores" :key="proveedor.id" v-bind:value="proveedor.id"> 
-            {{proveedor.nombre}}   
-        </option>
           multiple
           outlined
           dense

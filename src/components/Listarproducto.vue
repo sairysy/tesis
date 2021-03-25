@@ -34,9 +34,10 @@
         </thead>
         <tbody>
             <!--traer los datos de la base-->
+           
             <tr v-for="producto in productos" :key="producto.id">
                 <td>{{producto.id}}</td>
-                <td>{{producto.idproveedor}}</td>
+                <td>{{producto.id}}</td>
                 <td>{{producto.idcategoria}}</td>
                 <td>{{producto.nombre}}</td>
                 <td>{{producto.precio}}</td>
@@ -75,6 +76,7 @@
 import axios from 'axios';
 export default {
     name:'ListarProducto',
+    
     // lo que quiero que se cargue apenas se carga el navegador
     mounted(){
         this.obtenerProducto();
@@ -83,6 +85,7 @@ export default {
         return{            
             dialog:false,
             productos:null,
+           
             id:null,
             snackbar:false,
             textsnack:'¡Registro Eliminado!'
@@ -99,6 +102,7 @@ export default {
                 console.log(error);
             })
         },
+        
         confirmarBorrado(id){            
             axios.delete('http://localhost/apirest/productos?id='+id)
             .then(()=>{

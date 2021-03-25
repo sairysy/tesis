@@ -3,14 +3,14 @@
     <v-row class="text-center">      
       <v-col class="mb-4">
         <h2 class="display-2 font-weight-bold mb-3">
-         Proveedores
+         Ventas
         </h2>       
       </v-col>        
     </v-row>
     <v-row>
     <v-col class="mb-1">
         <!--crear componente boton-->
-       <v-btn :to="{name:'crearProveedor'}" class="mx-2" fab dark color="indigo">
+       <v-btn :to="{name:'crearVenta'}" class="mx-2" fab dark color="indigo">
          <v-icon dark>mdi-plus</v-icon>
        </v-btn>
     </v-col>
@@ -24,29 +24,25 @@
         <thead>
             <tr>
             <th class="text-center">Codigo</th>
-            <th class="text-center">Nombre</th>
-            <th class="text-center">Direccion</th>
-            <th class="text-center">Telefono</th>
-            <th class="text-center">Ruc</th>
-            <th class="text-center">Correo</th>
+            <th class="text-center">Cliente</th>
+            <th class="text-center">Usuario</th>
+            <th class="text-center">Fecha</th>
             <th class="text-center">Acciones</th>
             
             </tr>
         </thead>
         <tbody>
             <!--traer los datos de la base-->
-            <tr v-for="proveedor in proveedores" :key="proveedor.id">
-                <td>{{proveedor.id}}</td>
-                <td>{{proveedor.nombre}}</td>
-                <td>{{proveedor.direccion}}</td>
-                <td>{{proveedor.telefono}}</td>
-                <td>{{proveedor.ruc}}</td>
-                <td>{{proveedor.email}}</td>
+            <tr v-for="venta in ventas" :key="venta.id">
+                <td>{{venta.id}}</td>
+                <td>{{venta.idcliente}}</td>
+                <td>{{venta.idusuario}}</td>
+                <td>{{venta.fecha}}</td>
                 
                 <td>
                     <!--botones dentro de la tabla-->
-                    <v-btn :to="{name:'editarProveedor', params:{id:proveedor.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
-                    <v-btn @click.stop="dialog=true" @click="id=proveedor.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn>
+                    <v-btn :to="{name:'editarVenta', params:{id:venta.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
+                    <v-btn @click.stop="dialog=true" @click="id=venta.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn>
                 </td>
             </tr>
          </tbody>   
@@ -76,35 +72,35 @@
 <script>
 import axios from 'axios';
 export default {
-    name:'listarProveedor',
+    name:'listarVenta',
     // lo que quiero que se cargue apenas se carga el navegador
     mounted(){
-        this.obtenerProveedor();
+        this.obtenerVenta();
     },
     data(){
         return{            
             dialog:false,
-            proveedores:null,
+            ventas:null,
             id:null,
             snackbar:false,
             textsnack:'¡Registro Eliminado!'
         }
     },
     methods:{
-        obtenerProveedor(){
-            axios.get('http://localhost/apirest/proveedores')
+        obtenerVenta(){
+            axios.get('http://localhost/apirest/ventas')
             .then(r => {
-                this.proveedores = r.data;
-                console.log(this.proveedores);
+                this.ventas = r.data;
+                console.log(this.clientes);
             })
             .catch(function(error){
                 console.log(error);
             })
         },
         confirmarBorrado(id){            
-            axios.delete('http://localhost/apirest/proveedores?id='+id)
+            axios.delete('http://localhost/apirest/ventas?id='+id)
             .then(()=>{
-                    this.obtenerProveedor();
+                    this.obtenerVenta();
                     this.dialog = false;
                     this.snackbar = true
             })

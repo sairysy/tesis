@@ -26,6 +26,7 @@
             <th class="text-center">Codigo</th>
             <th class="text-center">Nombre</th>
             <th class="text-center">Descripcion</th>
+            <th class="text-center">Acciones</th>
            
             
             </tr>

@@ -28,7 +28,7 @@
             <th class="text-center">Proveedor</th>
             <th class="text-center">Cantidad</th>
             <th class="text-center">Precio unitario</th>
-         
+            <th class="text-center">Acciones</th>
             
             </tr>
         </thead>
@@ -40,6 +40,7 @@
                 <td>{{pedido.idproveedor}}</td>
                 <td>{{pedido.cantidad}}</td>
                 <td>{{pedido.precio}}</td>
+                
                 
                 <td>  
                     <!--botones dentro de la tabla-->
