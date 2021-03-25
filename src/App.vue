@@ -53,7 +53,7 @@
             </v-list-item-content>
           </v-list-item>
           
-          <v-list-item :to="{path: '/producto'}">
+          <v-list-item :to="{path: '/'}">
             <v-list-item-action>
               <v-img src="./assets/user.png" width="25" alt=""  />  
             </v-list-item-action>
@@ -94,7 +94,7 @@
         <v-toolbar-title>                
         <v-list-item :to="{path: '/'}">                
              
-        />
+        
         </v-list-item>  
         </v-toolbar-title>
 

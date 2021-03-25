@@ -30,6 +30,7 @@ import listarVenta from './components/ListarVenta';
 import crearVenta from './components/CrearVenta';
 import editarVenta from './components/EditarVenta';
 
+
 import './registerServiceWorker'
 // creacion de componentes
 
@@ -49,6 +50,7 @@ Vue.component('listarPedido', listarPedido );
 Vue.component('crearPedido', crearPedido );
 Vue.component('editarPedido', editarPedido);
 
+
 Vue.component('listarCliente', listarCliente );
 Vue.component('crearCliente', crearCliente );
 Vue.component('editarCliete', editarCliente);
@@ -56,6 +58,7 @@ Vue.component('editarCliete', editarCliente);
 Vue.component('listarVenta', listarVenta );
 Vue.component('crearVenta', crearVenta );
 Vue.component('editarVenta', editarVenta);
+
 // uso de vue-router
 Vue.use(VueRouter);
 // deninir las rutas
@@ -80,6 +83,7 @@ const routes = [
   {path:'/crear', component:crearPedido, name:'crearPedido'},
   {path:'/editar/:id', component:editarPedido, name:'editarPedido'},
 
+
   {path:'/clientes',component:listarCliente},
   {path:'/crear', component:crearCliente, name:'crearCliente'},
   {path:'/editar/:id', component:editarCliente, name:'editarCliente'},
@@ -87,6 +91,7 @@ const routes = [
   {path:'/ventas',component:listarVenta},
   {path:'/crear', component:crearVenta, name:'crearVenta'},
   {path:'/editar/:id', component:editarVenta, name:'editarVenta'}
+
 ]
 // creacion del objeto router
 
