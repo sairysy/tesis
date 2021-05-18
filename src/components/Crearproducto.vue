@@ -7,14 +7,24 @@
     </v-row>
     <v-row>
     <v-col>
-        <form v-on:submit.prevent="guardarProducto()">  
-        <v-select 
-        v-model="poducto"
-        class="form-control">  
-          multiple
-          outlined
-          dense
-        ></v-select>
+       <form v-on:submit.prevent="guardarProducto()"> 
+            <v-select  v-model=" producto.idcategoria" label="Categoria" >
+                <option v-for="categoria in categorias" :key="categoria.id">
+                
+                <td>{{categoria.nombre}}</td>
+         
+                </option>
+            </v-select>
+           <!--
+           <v-select multiple
+                        :value.sync="categorias.id"
+                        :options="categorias.nombre">
+                </v-select>
+        -->
+        <!--<select v-model="selected.categorias">
+        <option v-for="categoria in categorias" :value="categoria.id">
+            {{categoria.nombre}}</option>
+        </select -->
         <v-combobox 
           v-model="producto.idcategoria"
           :items="items"
@@ -71,18 +81,19 @@
 //import {DataManager, WebApiAdaptor} from "@syncfusion/ej2-data";
 import axios from 'axios';
 import toastr from 'toastr';
+//import vSelect from 'vue-select';
 
 
 export default {
-  
-    
-    name:'crearProducto',
-    
+  name:'crearProducto',
+  //  components: {
+   // vSelect
+ // },
 
     data(){
         return{
-              proveedores: {},
-              proveedor:'',
+            categorias:[],
+            selectedCategorias: null,
             producto:{
                 
                 idproveedor:'',
@@ -91,9 +102,33 @@ export default {
                 precio:'',
                 stock:''
             }
-        };
+        }
     },
+ /*   computed: {
+        categoria(){
+            return Object.values(this.categorias);
+             }
+    },
+    
+    created(){
+        axios.get('http://localhost/apirest/categorias')
+        .then(res => {
+            this.categorias = res.data;
+        })
+    },*/
+
     methods:{
+        obtenerCategoria(){
+            axios.get('http://localhost/apirest/categorias')
+            .then(r => {
+                this.categorias = r.data;
+                console.log(this.categorias);
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+        },
+
         guardarProducto(){
             var router = this.$router;
            const formData = new FormData();
@@ -111,7 +146,13 @@ export default {
         console.log(error);
             });
         }
+    },
+    mounted(){
+        this.obtenerCategoria()
     }
+    
+
+    
 
 
 }

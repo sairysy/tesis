@@ -30,6 +30,10 @@ import listarVenta from './components/ListarVenta';
 import crearVenta from './components/CrearVenta';
 import editarVenta from './components/EditarVenta';
 
+import listarUsuario from './components/ListarUsuario';
+import crearUsuario from './components/CrearUsuario';
+import editarUsuario from './components/EditarUsuario';
+
 
 import './registerServiceWorker'
 // creacion de componentes
@@ -58,6 +62,10 @@ Vue.component('editarCliete', editarCliente);
 Vue.component('listarVenta', listarVenta );
 Vue.component('crearVenta', crearVenta );
 Vue.component('editarVenta', editarVenta);
+
+Vue.component('listarUsuario', listarUsuario );
+Vue.component('crearUsuario', crearUsuario );
+Vue.component('editarUsuario', editarUsuario);
 
 // uso de vue-router
 Vue.use(VueRouter);
@@ -90,7 +98,11 @@ const routes = [
 
   {path:'/ventas',component:listarVenta},
   {path:'/crear', component:crearVenta, name:'crearVenta'},
-  {path:'/editar/:id', component:editarVenta, name:'editarVenta'}
+  {path:'/editar/:id', component:editarVenta, name:'editarVenta'},
+
+  {path:'/usuarios',component:listarUsuario},
+  {path:'/crear', component:crearUsuario, name:'crearUsuario'},
+  {path:'/editar/:id', component:editarUsuario, name:'editarUsuario'}
 
 ]
 // creacion del objeto router

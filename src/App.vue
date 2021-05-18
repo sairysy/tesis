@@ -53,7 +53,7 @@
             </v-list-item-content>
           </v-list-item>
           
-          <v-list-item :to="{path: '/'}">
+          <v-list-item :to="{path: '/usuarios'}">
             <v-list-item-action>
               <v-img src="./assets/user.png" width="25" alt=""  />  
             </v-list-item-action>
@@ -93,7 +93,10 @@
       <v-app-bar-nav-icon @click="drawer=true" class="white--text"></v-app-bar-nav-icon>
         <v-toolbar-title>                
         <v-list-item :to="{path: '/'}">                
-             
+         <v-img src="./assets/logos.png" width="250" alt=""
+         
+        />
+    
         
         </v-list-item>  
         </v-toolbar-title>
